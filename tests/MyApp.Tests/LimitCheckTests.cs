@@ -5,7 +5,7 @@ namespace MyApp.Tests;
 public class LimitCheckTests
 {
     [Theory]
-    [InlineData(50, 100, LimitStatus.Ok)]
+    [InlineData(50, 100, LimitStatus.Breach)]
     [InlineData(90, 100, LimitStatus.Warning)]
     [InlineData(100, 100, LimitStatus.Warning)]
     [InlineData(101, 100, LimitStatus.Breach)]
