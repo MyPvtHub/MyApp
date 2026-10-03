@@ -9,5 +9,6 @@
     <MajorMinor>1.0</MajorMinor>
     <BuildNumber Condition="'$(BuildNumber)' == ''">0</BuildNumber>
     <Version>$(MajorMinor).$(BuildNumber)</Version>
+    <RepositoryUrl>https://github.com/MyPvtHub/MyApp</RepositoryUrl>
   </PropertyGroup>
 </Project>
