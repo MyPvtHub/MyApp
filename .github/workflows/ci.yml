@@ -41,6 +41,7 @@ jobs:
       - name: Test
         run: >
           dotnet test --no-build --configuration Release
+          --collect:"XPlat Code Coverage"
           --logger "trx;LogFileName=test-results.trx"
           --results-directory ./TestResults
 
@@ -49,4 +50,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: TestResults/*.trx
+          path: TestResults/**
