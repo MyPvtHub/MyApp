@@ -68,3 +68,10 @@ jobs:
         with:
           name: nuget-package
           path: artifacts/*.nupkg
+
+      - name: Secret demo
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+        run: |
+          if [ -n "$DEMO_SECRET" ]; then echo "Secret is set, length ${#DEMO_SECRET}"; else echo "Secret is not set"; fi
+          echo "Trying to print it: $DEMO_SECRET"
