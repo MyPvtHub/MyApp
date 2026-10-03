@@ -32,11 +32,19 @@ jobs:
       - name: Restore
         run: dotnet restore
 
-      - name: Build
-        run: dotnet build --no-restore --configuration Release
-
       - name: Check formatting
         run: dotnet format --verify-no-changes --no-restore
+
+      - name: Check for vulnerable packages
+        run: |
+          dotnet list package --vulnerable --include-transitive 2>&1 | tee vuln.txt
+          if grep -q "has the following vulnerable packages" vuln.txt; then
+            echo "Vulnerable packages found"
+            exit 1
+          fi
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
 
       - name: Test
         run: >
