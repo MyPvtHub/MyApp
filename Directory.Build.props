@@ -6,5 +6,8 @@
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <Deterministic>true</Deterministic>
+    <MajorMinor>1.0</MajorMinor>
+    <BuildNumber Condition="'$(BuildNumber)' == ''">0</BuildNumber>
+    <Version>$(MajorMinor).$(BuildNumber)</Version>
   </PropertyGroup>
 </Project>
